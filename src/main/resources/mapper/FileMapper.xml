@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.clouddisk.mapper.FileMapper">
+    <select id="getFilesArrayByUserName" parameterType="String" resultType="com.clouddisk.pojo.File">
+        select * from file where
+        username=#{username} and filePath=#{filePath}
+        order by type DESC, fileName DESC
+    </select>
+
+
+    <insert id="insertFile" parameterType="com.clouddisk.pojo.File">
+        insert into file(fileName,filePath, fileSize, creatDate, username, type)
+        values (#{fileName},#{filePath}, #{fileSize}, #{creatDate}, #{username}, #{type})
+    </insert>
+
+    <delete id="deleteUserFileByName" parameterType="String">
+        delete from file where username=#{username} and fileName=#{fileName} and filePath=#{filePath}
+    </delete>
+    <!--删除路径及路径下的所有文件-->
+    <delete id="deleteUserFileUnderPath" parameterType="String">
+        delete from file where username=#{username} and filePath like concat(#{dir},'%');
+    </delete>
+    <!--未用到-->
+    <select id="getFileByFileId" parameterType="Long" resultType="com.clouddisk.pojo.File">
+        select * from file where fileId=#{fileId}
+    </select>
+
+    <select id="getUserFileByFileName" parameterType="String" resultType="com.clouddisk.pojo.File">
+        select * from file where username=#{username} and fileName=#{fileName} and filePath=#{filePath}
+    </select>
+
+    <update id="rename" parameterType="String">
+        update file set fileName=#{newName}, filePath=#{newPath}
+                    where username=#{username} and filePath=#{filePath}
+    </update>
+
+    <select id="computeDirSize" parameterType="String" resultType="Long">
+        select coalesce(sum(fileSize), 0) from file
+                where username = #{username}
+                 and filePath like concat(#{path},'%')
+                 and type=0
+    </select>
+
+    <update id="setDirSize" parameterType="Map">
+        update file set fileSize=#{dirSize}
+                    where username=#{username} and filePath=#{dirPath}
+                    and fileName=#{dirName}
+    </update>
+
+    <select id="getUserDirList" parameterType="String" resultType="com.clouddisk.pojo.File">
+        select * from file where username=#{username} and type=1
+    </select>
+</mapper>

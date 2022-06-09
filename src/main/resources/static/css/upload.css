@@ -1,0 +1,172 @@
+*{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+th,td{
+    border-top: 1px  solid #b9def0;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.button-line{
+    width: 100%;
+    height: 30px;
+}
+
+table{
+    width: 100%;
+    overflow-y: scroll;
+    border-collapse: collapse;
+}
+
+div{
+    margin: auto;
+}
+
+table thead {
+    width: 100%
+}
+
+table thead tr{
+    color: #000;
+}
+
+table thead th {
+
+    width: 20%;
+    text-align: center;
+}
+
+
+
+table tbody {
+    display: block;
+    height: 400px;
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    cursor: default;
+}
+
+table tbody td {
+    width: 20%;
+    text-align: left;
+
+}
+
+table tbody tr:hover{
+    background-color: rgba(0,181,255,0.1);
+}
+
+table tbody tr td:first-child{
+    color: #f40;
+}
+
+
+
+table tfoot tr td{
+    text-align: right;
+    padding-right: 20px;
+}
+
+table caption{
+    font-size: 2em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+table thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+
+
+#browse{
+    border: 1px solid #ccc;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #2c9a8a;
+    color: #fff;
+}
+input[type="checkbox"]{
+    position: relative;
+    width: 18px;
+    height: 18px;
+}
+
+.layui-nav li{
+    margin: 10px;
+}
+
+
+.layui-header .bttons{
+    float: right;
+}
+
+.layui-header .bttons li{
+    margin: 0;
+}
+
+
+
+.btn{
+    color: #06a7ff;
+    font-weight: bold;
+    background-color: rgba(0,191,255,0.2);
+}
+
+.side-left{
+    background-color: white;
+}
+li .side-left {
+    margin: 0;
+}
+.side-left dd,dt{
+    line-height: 4;
+}
+
+
+#rMenu{
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    visibility:hidden;
+    z-index: 999;
+    background:#fff9ec;
+    text-align:left;
+}
+
+
+.layui-nav,
+.layui-this:after,
+.layui-nav-bar,
+.layui-nav-tree,
+.layui-nav-itemed:after{
+    background-color: rgba(0,191,255,0.2);
+}
+
+img {
+
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+
+
+.div_longTextext{
+    width: 100px;
+    color: #2aabd2;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+    /*margin: 0px;*/
+
+}
+
+
+
